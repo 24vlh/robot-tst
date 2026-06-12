@@ -4,6 +4,19 @@ Small TypeScript / Node.js solution for the Martian Robots programming problem.
 
 The program reads a grid, robot starting positions, and instruction strings. It then prints the final position of each robot. If a robot moves off the grid for the first time from a position/direction, it is reported as `LOST`. That position/direction is then recorded as a scent so future robots ignore the same fatal move.
 
+## Architecture Note
+
+The challenge rule says that the first robot to move off the grid is `LOST`, and that the last valid position/direction leaves a scent for future robots.
+
+That is a valid rule, but it is not how a safety-oriented robot controller would normally be designed.
+
+Because the controller knows the grid boundary, a real system would normally calculate the proposed next position before executing movement. If the next position is outside the permitted area, the controller would reject the move and report something like `UNSAFE_MOVE_REJECTED` or `WOULD_BE_LOST_IF_PROCEEDED`.
+
+For this implementation, the challenge semantics are followed exactly:
+
+- first fatal move from a position/direction => robot is `LOST`
+- later identical fatal move => instruction is ignored because of scent
+
 ## Requirements
 
 - Node.js 20+
