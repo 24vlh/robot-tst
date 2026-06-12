@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "A small TypeScript/Node.js implementation of the Martian Robots challenge.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "pnpm run build && node dist/index.js",
+    "start:sample": "pnpm run build && node dist/index.js sample-input.txt",
+    "test": "vitest run"
+  },
   "devDependencies": {
     "@types/node": "^22.10.1",
     "typescript": "^5.7.2",
