@@ -1,0 +1,11 @@
+{
+  "name": "@24vlh/robot-tst",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small TypeScript/Node.js implementation of the Martian Robots challenge.",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
